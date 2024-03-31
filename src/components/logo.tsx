@@ -11,7 +11,7 @@ const headingFont = localFont({
 export const Logo = () => {
   return (
     <Link href="/">
-      <div className={cn("hover:opacity-75 transition items-center gap-x-2 hidden md:flex justify-center mt-1", headingFont.className)}>
+      <div className={cn("hover:opacity-75 transition items-center gap-x-2 hidden md:flex", headingFont.className)}>
         <Image src="/logo.svg"
          alt="Listo logo"
           width={100}
