@@ -6,17 +6,17 @@ import localFont from "next/font/local";
 
 
 const headingFont = localFont({
-    src: "../../../public/fonts/font.woff2",
+    src: "../../public/fonts/font.woff2",
 })
 export const Logo = () => {
   return (
     <Link href="/">
-      <div className={cn("hover:opacity-75 transition items-center gap-x-2 hidden md:flex", headingFont.className)}>
+      <div className={cn("hover:opacity-75 transition items-center gap-x-2 hidden md:flex justify-center mt-1", headingFont.className)}>
         <Image src="/logo.svg"
          alt="Listo logo"
-          width={30}
-           height={30} />
-           <p className="text-lg text-neutral-700 pb-1">Listo</p>
+          width={100}
+           height={100} />
+           {/* <p className="text-lg text-neutral-700 pb-1">Listo</p> */}
       </div>
     </Link>
   );

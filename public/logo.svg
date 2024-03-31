@@ -1,6 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text x="10" y="50" font-family=" cursive" font-size="30" fill="#007bff">Listo</text>
+  <text x="10" y="55" font-family=" cursive" font-size="30" fill="#007bff">Listo</text>
 
-  <rect x="70" y="40" width="10" height="20" fill="#ffc107" rx="2" />
-  <circle cx="75" cy="50" r="3" fill="#007bff" />
+  <rect x="71" y="47" width="10" height="20" fill="#ffc107" rx="2" />
+  <circle cx="76" cy="50" r="3" fill="#007bff" />
 </svg>
+
+
+<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <text x="10" y="50" font-family="Arial, sans-serif" font-size="30" fill="#008000">Listo</text>
+
+  <path fill="#008000" d="M30 50 L50 70 L70 30 Z" />
+</svg> -->
