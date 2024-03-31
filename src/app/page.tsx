@@ -1,10 +1,5 @@
 import Image from "next/image";
 
 export default function Home() {
- return(
-  <>
-  <div>Hello</div>
-  <p>ok</p>
-  </>
- )
+  return <div className="text-sky-500">Hello</div>;
 }
