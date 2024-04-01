@@ -43,10 +43,10 @@ const MarketingPage = () => {
       >
         Collaborate, manage projects, and reach new productivity peaks. From
         high rises to the home office, the way your team works is unique —
-        accomplish it all with Listo.
+        Accomplish it all with Listo.
       </div>
       <Button className="mt-6" size="lg" asChild>
-        <Link href="/sign-up">Get Listo for free</Link>
+        <Link href="/sign-up">Get Listo for Free</Link>
       </Button>
     </div>
   );
