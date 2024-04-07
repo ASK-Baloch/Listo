@@ -1,6 +1,6 @@
 export const Navbar =()=>{
     return(
-        <div>
+        <div className="fixed z-50">
             Navbar
         </div>
     )
