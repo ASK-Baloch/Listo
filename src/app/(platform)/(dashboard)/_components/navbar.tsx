@@ -1,7 +1,7 @@
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { OrganizationSwitcher } from "@clerk/nextjs";
-import { Plus } from "lucide-react";
+import { FileX, Plus } from "lucide-react";
 
 export const Navbar = () => {
   return (
@@ -22,7 +22,21 @@ export const Navbar = () => {
         </Button>
       </div>
       <div className="ml-auto flex items-center gap-x-2">
-        <OrganizationSwitcher />
+        <OrganizationSwitcher 
+        hidePersonal
+        afterCreateOrganizationUrl="/organization/:id"
+        afterLeaveOrganizationUrl="/select-org"
+        afterSelectOrganizationUrl='/organization/:id'
+        appearance={{
+            elements:{
+                rootBox:{
+                   display:"flex",
+                   justifyContent:"center",
+                   alignItems:"center",
+                }
+            }
+        }}
+        />
       </div>
     </nav>
   );
