@@ -1,5 +1,7 @@
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { OrganizationSwitcher } from "@clerk/nextjs";
+import { Plus } from "lucide-react";
 
 export const Navbar = () => {
   return (
@@ -15,6 +17,12 @@ export const Navbar = () => {
         >
           Create
         </Button>
+        <Button size='sm' className="rounded-sm block md:hidden">
+            <Plus className="w-4 h-4" />
+        </Button>
+      </div>
+      <div className="ml-auto flex items-center gap-x-2">
+        <OrganizationSwitcher />
       </div>
     </nav>
   );
