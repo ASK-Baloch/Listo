@@ -1,6 +1,6 @@
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { OrganizationSwitcher } from "@clerk/nextjs";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { FileX, Plus } from "lucide-react";
 
 export const Navbar = () => {
@@ -33,6 +33,17 @@ export const Navbar = () => {
                    display:"flex",
                    justifyContent:"center",
                    alignItems:"center",
+                }
+            }
+        }}
+        />
+        <UserButton 
+        afterSignOutUrl="/"
+        appearance={{
+            elements:{
+                avatarBox:{
+                    height:30,
+                    width:30,
                 }
             }
         }}
