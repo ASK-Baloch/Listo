@@ -35,12 +35,33 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
     },
     []
   );
-  const onExpand = (id:string)=> {
-    setExpanded((curr)=>({
+  const onExpand = (id: string) => {
+    setExpanded((curr) => ({
       ...curr,
-      [id]:!expanded[id]
-    }))
+      [id]: !expanded[id],
+    }));
+  };
+  if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
+    return <Skeleton />;
   }
-  if(!isLoadedOrg || !isLoadedOrgList || !userMemberships.isLoading){ return <Skeleton/>}
-  return (<div>Sidebar</div>);
+  return (
+    <>
+      <div className="font-medium  text-sm flex items-center mb-1">
+        <span className="pl-4">Workspaces</span>
+        <Button
+         asChild 
+         type="button"
+         variant="ghost" 
+         className="ml-auto">
+          <Link href="/select-org">
+            <Plus className="h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
+      <Separator />
+      <Accordion type='multiple' defaultValue={defaultAccordionValue}>
+
+      </Accordion>
+    </>
+  );
 };
