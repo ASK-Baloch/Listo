@@ -1,11 +1,16 @@
 "use client";
 import Image from "next/image";
-import { useRouter,usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Activity, CreditCard, Layout, Settings } from "lucide-react";
 
-import { Accordion } from "@/components/ui/accordion";
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@radix-ui/react-accordion";
+import { Button } from "@/components/ui/button";
 
 export type Organization = {
   id: string;
@@ -54,33 +59,47 @@ export const NavItem = ({
 
   const onClick = (href: string) => {
     router.push(href);
-  }
+  };
   return (
     <Accordion type="multiple">
-      <AccordionItem value={organization.id} className="border-none">
-        <AccordionTrigger
-          onCanPlay={() => onExpand(organization.id)}
+    <AccordionItem value={organization.id} className="border-none">
+    <AccordionTrigger
+      onCanPlay={() => onExpand(organization.id)}
+      className={cn(
+        "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline ",
+        isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
+      )}
+    >
+      <div className="flex items-center gap-x-2">
+        <div className="w-7 h-7 relative">
+          <Image
+            fill
+            src={organization.imageUrl}
+            alt="Organization"
+            className="rounded-sm object-cover"
+          />
+        </div>
+        <span className="font-medium text-sm">{organization.name}</span>
+      </div>
+    </AccordionTrigger>
+    <AccordionContent className="pt-1 text-neutral-700">
+      {routes.map((route) => (
+        <Button
+          key={route.href}
+          size="sm"
+          onClick={() => onClick(route.href)}
           className={cn(
-            "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline ",
-            isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
+            "w-full font-normal justify-start pl-10 mb-1",
+            pathName === route.href && "bg-sky-500/10 text-sky-700"
           )}
+          variant="ghost"
         >
-          <div className="flex items-center gap-x-2">
-            <div className="w-7 h-7 relative">
-              <Image
-                fill
-                src={organization.imageUrl}
-                alt="Organization"
-                className="rounded-sm object-cover"
-              />
-            </div>
-            <span className="font-medium text-sm">{organization.name}</span>
-          </div>
-        </AccordionTrigger>
-        <AccordionContent className="pt-1 text-neutral-700">
-
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+          {route.icon}
+          {route.label} 
+        </Button>
+      ))}
+    </AccordionContent>
+  </AccordionItem>
+ </Accordion>
   );
 };
