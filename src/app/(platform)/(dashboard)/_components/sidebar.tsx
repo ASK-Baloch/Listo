@@ -56,15 +56,21 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
         </Button>
       </div>
       <Separator />
-      {userMemberships.data.map(({ organization }) => (
-        <NavItem
-          key={organization.id}
-          isActive={activeOrganization?.id === organization.id}
-          isExpanded={expanded[organization.id]}
-          organization={organization as Organization}
-          onExpand={onExpand}
-        />
-      ))}
+      <Accordion defaultValue={defaultAccordionValue}
+      className="space-y-2">
+        {userMemberships.data.map(({ organization }) => (
+          <NavItem
+            key={organization.id}
+            isActive={activeOrganization?.id === organization.id}
+            isExpanded={expanded[organization.id]}
+            organization={organization as Organization}
+            onExpand={onExpand}
+          />
+          // <p key={organization.id}>
+          //   {organization.name}
+          // </p>
+        ))}
+      </Accordion>
     </>
   );
 };
