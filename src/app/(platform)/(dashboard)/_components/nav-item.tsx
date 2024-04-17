@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter,usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Activity, CreditCard, Layout, Settings } from "lucide-react";
 
 import { Accordion } from "@/components/ui/accordion";
-import { AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 
 export type Organization = {
   id: string;
@@ -28,6 +28,7 @@ export const NavItem = ({
   onExpand,
 }: NavItemProps) => {
   const router = useRouter();
+  const pathName = usePathname();
   const routes = [
     {
       label: "Boards",
@@ -50,6 +51,10 @@ export const NavItem = ({
       href: `/organization/${organization.id}/billing`,
     },
   ];
+
+  const onClick = (href: string) => {
+    router.push(href);
+  }
   return (
     <Accordion type="multiple">
       <AccordionItem value={organization.id} className="border-none">
@@ -72,6 +77,9 @@ export const NavItem = ({
             <span className="font-medium text-sm">{organization.name}</span>
           </div>
         </AccordionTrigger>
+        <AccordionContent className="pt-1 text-neutral-700">
+
+        </AccordionContent>
       </AccordionItem>
     </Accordion>
   );
