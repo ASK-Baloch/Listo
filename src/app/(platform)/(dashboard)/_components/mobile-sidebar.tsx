@@ -17,6 +17,9 @@ export const MobileSidebar = () => {
     setIsMounted(true);
   }, []);
 
+  useEffect(()=>{
+    onClose();
+  },[pathName,onclose])
   if(!isMounted) return null;
   return <div>SIdebar</div>;
 };
