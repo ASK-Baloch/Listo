@@ -24,7 +24,7 @@ export const MobileSidebar = () => {
 
   useEffect(() => {
     onClose();
-  }, [pathName, onclose]);
+  }, [pathName, onClose]);
   if (!isMounted) return null;
   return (
     <>
