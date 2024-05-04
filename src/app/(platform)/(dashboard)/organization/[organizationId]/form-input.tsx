@@ -1,5 +1,7 @@
 interface FormInputProps{
-    errors?: Record<string, any>
+    errors?: {
+        title?: string[]
+    }
 }
 
 export const FormInput = ({errors}:FormInputProps) => {
