@@ -4,5 +4,9 @@ interface BoardProps {
 }
 
 export const Board = ({ title, id }: BoardProps) => {
-  return <div>Board Title :{title}</div>;
+  return (
+    <form className="flex items-center gap-x-2">
+      <p>Board Title :{title} </p>
+    </form>
+  );
 };
