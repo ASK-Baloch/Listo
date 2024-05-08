@@ -15,4 +15,13 @@ export const useAction = <TInput, TOutput>(action: Action<TInput, TOutput>, opti
     const [error, setError] = useState<string | undefined>(undefined);
     const [data, setdata] = useState<TOutput | undefined>(undefined);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const execute = useCallBack(
+        async (input:TInput) => {
+            setIsLoading(true);            
+        }
+    )
+
+
+
 }
