@@ -22,6 +22,20 @@ export const useAction = <TInput, TOutput>(action: Action<TInput, TOutput>, opti
             
             try {
                 const result = await action(input)
+
+                if(!result){
+                    return
+                }
+
+                if(result.fieldsErrors){
+                    setFieldErrors(result.fieldsErrors)
+                }
+                if(result.error){
+                    setError(result.error)
+                }
+                if(result.data){
+                    setdata(result.data)
+                }
             } catch (error) {
                 
             }
