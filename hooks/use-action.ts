@@ -18,7 +18,13 @@ export const useAction = <TInput, TOutput>(action: Action<TInput, TOutput>, opti
 
     const execute = useCallBack(
         async (input:TInput) => {
-            setIsLoading(true);            
+            setIsLoading(true);  
+            
+            try {
+                const result = await action(input)
+            } catch (error) {
+                
+            }
         }
     )
 
