@@ -16,32 +16,32 @@ export const useAction = <TInput, TOutput>(action: Action<TInput, TOutput>, opti
     const [data, setdata] = useState<TOutput | undefined>(undefined);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const execute = useCallBack(
-        async (input:TInput) => {
-            setIsLoading(true);  
-            
+    const execute = useCallback(
+        async (input: TInput) => {
+            setIsLoading(true);
+
             try {
                 const result = await action(input)
 
-                if(!result){
+                if (!result) {
                     return
                 }
 
-                if(result.fieldsErrors){
+                if (result.fieldsErrors) {
                     setFieldErrors(result.fieldsErrors)
                 }
-                if(result.error){
+                if (result.error) {
                     setError(result.error)
+                    options.onError?.(result.error)
                 }
-                if(result.data){
+                if (result.data) {
                     setdata(result.data)
+                    options.onSuccess?.(result.data)
                 }
-            } catch (error) {
-                
+            } finally {
+                setIsLoading(false)
+                options.onComplete?.()
             }
-        }
+        }, [action, options]
     )
-
-
-
 }
