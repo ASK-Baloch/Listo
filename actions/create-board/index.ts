@@ -19,6 +19,7 @@ const handler = async (data:InputType):Promise<ReturnType> => {
 
     let board;
     try{
+        throw new Error("balabaa")
         board = await db.board.create({
             data:{
                 title,
