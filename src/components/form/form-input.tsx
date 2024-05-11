@@ -3,6 +3,8 @@
 import { forwardRef } from "react";
 import { useFormStatus } from "react-dom";
 import { Label } from "@/components/ui/label";
+import { Input } from "../ui/input";
+import { cn } from "@/lib/utils";
 
 interface FormInputProps {
   id: string;
@@ -37,7 +39,20 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 
     return (
       <div className="space-y-2">
-        <div className="space-y-1">{label ? <Label htmlFor={id}>Lable</Label> : null}</div>
+        <div className="space-y-1">{label ? <Label htmlFor={id} className="text-sm font-semibold text-neutral-700">Lable</Label> : null}
+        <Input 
+        onBlur={onBlur}
+        defaultValue={defaultValue}
+        ref={ref}
+        required={required}
+        name={id}
+        id={id}
+        placeholder={placeholder}
+        type={type}
+        disabled={pending || disabled}
+        className={cn("text-sm px-2 py-1 h-7", className)}
+        aria-describedby={`${id}-error`}
+        /></div>
       </div>
     );
   }
