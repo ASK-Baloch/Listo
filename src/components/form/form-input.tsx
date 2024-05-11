@@ -1,8 +1,8 @@
 "use client";
 
-import { Form } from "@/app/(platform)/(dashboard)/organization/[organizationId]/form";
 import { forwardRef } from "react";
 import { useFormStatus } from "react-dom";
+import { Label } from "@/components/ui/label";
 
 interface FormInputProps {
   id: string;
@@ -37,7 +37,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 
     return (
       <div className="space-y-2">
-        <div className="space-y-1">{label ? <div>Lable</div> : null}</div>
+        <div className="space-y-1">{label ? <Label htmlFor={id}>Lable</Label> : null}</div>
       </div>
     );
   }
