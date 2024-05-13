@@ -27,9 +27,7 @@ export const useAction = <TInput, TOutput>(action: Action<TInput, TOutput>, opti
                     return
                 }
 
-                if (result.fieldsErrors) {
-                    setFieldErrors(result.fieldsErrors)
-                }
+                setFieldErrors(result.fieldsErrors)
                 if (result.error) {
                     setError(result.error)
                     options.onError?.(result.error)
@@ -45,7 +43,7 @@ export const useAction = <TInput, TOutput>(action: Action<TInput, TOutput>, opti
         }, [action, options]
     )
 
-    return{
+    return {
         execute,
         fieldErrors,
         error,
