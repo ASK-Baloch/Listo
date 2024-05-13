@@ -10,3 +10,18 @@
     className?: string
     variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "primary"
   }
+
+  export const FormSubmit = ({ children, disabled, className, variant}: FormSubmitProps) => {
+    const {pending} = useFormStatus();
+    return (
+      <Button
+        type="submit"
+        disabled={pending || disabled}
+        className={cn(className)}
+        variant={variant}
+        size='sm'
+      >
+        {children}
+      </Button>
+    )
+  }
