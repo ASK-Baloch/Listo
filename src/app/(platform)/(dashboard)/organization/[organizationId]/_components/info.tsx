@@ -6,7 +6,7 @@ import Image from "next/image";
 export const Info = () => {
   const { organization, isLoaded } = useOrganization();
   if (!isLoaded) {
-    return <p>Loading... </p>;
+    return <p>Loading...</p>;
   }
   return (
     <div className="flex items-center gap-x-4">
